@@ -29,7 +29,7 @@ $(function() {
             animation_options.push({key: g, name: g.replace('fa-',''), html: '<i class="fa ' + g + '"></i>'});
         }
 		*/
-        var getAnimateClass = function(pgel) {
+   /*     var getAnimateClass = function(pgel) {
             var cls = pgel.attr('class');
             if(cls) {
                 cls = cls.split(' ');
@@ -42,11 +42,11 @@ $(function() {
                 }
             }
             return null;
-        }
+        }*/
 
         var animations_def = new PgComponentType('animation', 'Animation');
         animations_def.selector = '.fa,i';
-        animations_def.code = '<i class="fa fa-glass"></i>';
+        animations_def.code = '<i class="fa fa-glass animated"></i>';
         animations_def.sections = {
             'animation_options' : {
                 name: "Animation options",
@@ -144,17 +144,17 @@ $(function() {
             }
         }
 
-
+         f.addComponentType(animations_def);
         //Now, lets define sections and elements shown in LIB tab
-        var section = new PgFrameworkLibSection('aniamte', 'Animate');
+        var section = new PgFrameworkLibSection('aniamte-css', 'Animate CSS');
         //Pass components in array
-        section.setComponentTypes([animations_def, stack_def]);
+        section.setComponentTypes([animations_def]);
         f.addLibSection(section);
 
         f.on_plugin_activated = function(pgPage) {
             if(!f.detect(pgPage)) {
                 //FA CSS is not included
-                var url = '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.csss';
+                var url = '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css';
                 pinegrow.showAlert('<p>Looks like that <b>Animate.css</b> is not included on the page.</p><p>Do you want to add Animte.css CDN stylesheet to the page?</p><p><code>&lt;link rel="stylesheet" href="' + url + '"&gt;</code></p><p>You can also use <b>Page -&gt; Manage stylesheets</b> to manually include local or remote CSS file.</p>', "Add Animate.css stylesheet", "Don\'t add it", "Add the CSS", null, function() {
                     pgPage.addStylesheet(url);
                     pinegrow.showQuickMessage('Animate.css was added to the page');
