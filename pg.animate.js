@@ -16,6 +16,26 @@ return pgPage.hasStylesheet(/animate/i);
 pinegrow.addFramework(f);
 var animations = ['bounce','flash','pulse','rubberBand','shake','headShake','swing','tada','wobble','jello','bounceIn','bounceInDown','bounceInLeft','bounceInRight','bounceInUp','bounceOut','bounceOutDown','bounceOutLeft','bounceOutRight','bounceOutUp','fadeIn','fadeInDown','fadeInDownBig','fadeInLeft','fadeInLeftBig','fadeInRight','fadeInRightBig','fadeInUp','fadeInUpBig','fadeOut','fadeOutDown','fadeOutDownBig','fadeOutLeft','fadeOutLeftBig','fadeOutRight','fadeOutRightBig','fadeOutUp','fadeOutUpBig','flipInX','flipInY','flipOutX','flipOutY','lightSpeedIn','lightSpeedOut','rotateIn','rotateInDownLeft','rotateInDownRight','rotateInUpLeft','rotateInUpRight','rotateOut','rotateOutDownLeft','rotateOutDownRight','rotateOutUpLeft','rotateOutUpRight','hinge','rollIn','rollOut','zoomIn','zoomInDown','zoomInLeft','zoomInRight','zoomInUp','zoomOut','zoomOutDown','zoomOutLeft','zoomOutRight','zoomOutUp','slideInDown','slideInLeft','slideInRight','slideInUp','slideOutDown','slideOutLeft','slideOutRight','slideOutUp'];
 var animation_options = [];
+/*
+for(var i = 0; i < animations.length; i++) {
+var g = animations[i];
+animation_options.push({key: g, name: g.replace('fa-',''), html: '<i class="fa ' + g + '"></i>'});
+}
+*/
+/*     var getAnimateClass = function(pgel) {
+var cls = pgel.attr('class');
+if(cls) {
+cls = cls.split(' ');
+for(var i = 0; i < cls.length; i++) {
+if(cls[i].indexOf('fa-') == 0) {
+for(var j = 0; j < animations.length; j++) {
+if(cls[i] == animations[j]) return cls[i];
+}
+}
+}
+}
+return null;
+}*/
 var animations_def = new PgComponentType('animation', 'Animation');
 animations_def.selector = '.animated';
 animations_def.sections = {
@@ -74,8 +94,8 @@ fields: {
 {key: 'lightSpeedOut',name: 'lightSpeedOut' },
 {key: 'rotateIn',name: 'rotateIn' },
 {key: 'rotateInDownLeft',name: 'rotateInDownLeft' },
-{key: 'rotateInDownRight',name: '' },
-{key: 'rotateInUpLeft',name: 'rotateInDownRight' },
+{key: 'rotateInDownRight',name: 'rotateInDownRight' },
+{key: 'rotateInUpLeft',name: 'rotateInUpLeft' },
 {key: 'rotateInUpRight',name: 'rotateInUpRight' },
 {key: 'rotateOut',name: 'rotateOut' },
 {key: 'rotateOutDownLeft',name: 'rotateOutDownLeft' },
